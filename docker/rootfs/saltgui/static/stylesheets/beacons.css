@@ -1,0 +1,20 @@
+td.beacon-config {
+  white-space: pre;
+}
+
+td.beacon-value {
+  white-space: pre-wrap;
+}
+
+#page-beacons {
+  width: 100%;
+}
+
+.beacons {
+  padding: 0;
+}
+
+td.beacon-disabled,
+td.beacon-waiting {
+  color: gray;
+}

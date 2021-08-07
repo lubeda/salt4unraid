@@ -1,0 +1,6 @@
+# /etc/salt/minion
+master: 127.0.0.1
+id: unraid
+virt:
+  connection:
+  uri: qemu:///var/run/libvirt/libvirt-sock
