@@ -70,6 +70,7 @@ RUN \
     linux-pam=1.5.1-r1\
     py3-libvirt\
     py3-pip \
+    qemu-img \
     salt-master=${SALT_VERSION} \
     salt-minion=${SALT_VERSION} \
     salt-api=${SALT_VERSION} \
@@ -84,5 +85,3 @@ COPY rootfs /
 # some volume configuration for the saltmaster
 VOLUME ["/pki", "/var/cache/salt", "/var/log/salt","/etc/salt"]
 EXPOSE 3333 4505 4506
-
-

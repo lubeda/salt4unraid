@@ -17,3 +17,6 @@ First you have to accept the key from the unraid minion via the gui (user: salt_
 `salt unraid virt.capabilities`
 ![sample 2](https://github.com/lubeda/salt4unraid/raw/master/images/virt.capabilities.png)
 
+## Getting further
+
+For more advanced salt features you might map more volumes into the container. E.g. `/mnt/user/domains/` is needed for commands like `virt.vm_info`
