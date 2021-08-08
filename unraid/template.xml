@@ -5,26 +5,26 @@
   <Registry>https://hub.docker.com/repository/docker/lubeda/salt4unraid</Registry>
   <Network>bridge</Network>
   <MyIP/>
-  <Shell>sh</Shell>
+  <Shell>bash</Shell>
   <Privileged>false</Privileged>
-  <Support/>
+  <Support>https://forums.unraid.net/topic/112221-support-lubeda-application-dockers/</Support>
   <Project>https://github.com/lubeda/salt4gui</Project>
-  <Overview>salt is a orchestration remote execution tool for linux, Mac and Windows systems. This is a container with a preconfigured master optimized for unraid. Since orchestration need privileged a.k.a. root rights you should be carefully use it. Especially check the advanded options, e.g. if you don't want salt to access yout containers and virtual machines.&#xD;
+  <Overview>Salt is a orchestration remote execution tool for linux, Mac and Windows systems. This is a container with a preconfigured master optimized for unraid. Since orchestration need privileged a.k.a. root rights you should be carefully use it. Especially check the advanded options, e.g. if you don't want salt to access yout containers and virtual machines.&#xD;
 &#xD;
-So use it at your own risk!</Overview>
+So use it at your own &amp;lt;B&amp;gt;risk&amp;lt;/B&amp;gt;!</Overview>
   <Category>Tools:</Category>
   <WebUI>http://[IP]:[PORT:3333]</WebUI>
-  <TemplateURL/>
+  <TemplateURL>https://raw.githubusercontent.com/lubeda/unraid-templates/main/salt4unraid/template.xml</TemplateURL>
   <Icon>https://www.mirantis.com/wp-content/uploads/2017/02/image01.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1628342899</DateInstalled>
+  <DateInstalled>1628439001</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Description>salt is a orchestration remote execution tool for linux, Mac and Windows systems. This is a container with a preconfigured master optimized for unraid. Since orchestration need privileged a.k.a. root rights you should be carefully use it. Especially check the advanded options, e.g. if you don't want salt to access yout containers and virtual machines.&#xD;
+  <Description>Salt is a orchestration remote execution tool for linux, Mac and Windows systems. This is a container with a preconfigured master optimized for unraid. Since orchestration need privileged a.k.a. root rights you should be carefully use it. Especially check the advanded options, e.g. if you don't want salt to access yout containers and virtual machines.&#xD;
 &#xD;
-So use it at your own <B>risk</B>!</Description>
+So use it at your own &amp;lt;B&amp;gt;risk&amp;lt;/B&amp;gt;!</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -57,6 +57,11 @@ So use it at your own <B>risk</B>!</Description>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
+      <HostDir>/mnt/user/domains</HostDir>
+      <ContainerDir>/mnt/user/domains</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
       <HostDir>/var/run/libvirt/libvirt-sock</HostDir>
       <ContainerDir>/var/run/libvirt/libvirt-sock</ContainerDir>
       <Mode>rw</Mode>
@@ -80,13 +85,14 @@ So use it at your own <B>risk</B>!</Description>
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Salt server directory" Target="/srv" Default="" Mode="rw" Description="Container Path: /srv" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/salt4unraid/srv</Config>
-  <Config Name="Salt config settings" Target="/etc/salt/" Default="" Mode="rw" Description="Container Path: /etc/salt/" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/salt4unraid/etc</Config>
-  <Config Name="API password" Target="SALT_PASSWORD" Default="" Mode="" Description="Container Variable: SALT_PASSWORD" Type="Variable" Display="always" Required="false" Mask="false">salt</Config>
+  <Config Name="Salt data directory" Target="/srv" Default="" Mode="rw" Description="Container Path: /srv" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/salt4unraid/srv</Config>
+  <Config Name="Salt Config directory" Target="/etc/salt/" Default="" Mode="rw" Description="Container Path: /etc/salt/" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/salt4unraid/etc</Config>
+  <Config Name="API password" Target="SALT_PASSWORD" Default="" Mode="" Description="Container Variable: SALT_PASSWORD" Type="Variable" Display="always" Required="false" Mask="false">salty</Config>
   <Config Name="Saltgui web/api port" Target="3333" Default="3333" Mode="tcp" Description="Container Port: 3333" Type="Port" Display="always" Required="false" Mask="false">3333</Config>
-  <Config Name="Virtmgr socket" Target="/var/run/libvirt/libvirt-sock" Default="" Mode="rw" Description="Container Path: /var/run/libvirt/libvirt-sock" Type="Path" Display="advanced" Required="false" Mask="false">/var/run/libvirt/libvirt-sock</Config>
-  <Config Name="Salt publisher port" Target="4505" Default="" Mode="tcp" Description="Container Port: 4505" Type="Port" Display="advanced" Required="false" Mask="false">4505</Config>
-  <Config Name="Salt request server port" Target="4506" Default="" Mode="tcp" Description="Container Port: 4506" Type="Port" Display="advanced" Required="false" Mask="false">4506</Config>
+  <Config Name="Path to qemu images" Target="/mnt/user/domains" Default="" Mode="ro" Description="Container Path: /mnt/user/domains" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/domains</Config>
+  <Config Name="Virtualisation passthrough" Target="/var/run/libvirt/libvirt-sock" Default="" Mode="rw" Description="Container Path: /var/run/libvirt/libvirt-sock" Type="Path" Display="advanced" Required="false" Mask="false">/var/run/libvirt/libvirt-sock</Config>
+  <Config Name="Salt publish port" Target="4505" Default="" Mode="tcp" Description="Container Port: 4505" Type="Port" Display="advanced" Required="false" Mask="false">4505</Config>
+  <Config Name="Saltrequest server port" Target="4506" Default="" Mode="tcp" Description="Container Port: 4506" Type="Port" Display="advanced" Required="false" Mask="false">4506</Config>
   <Config Name="Salt loglevel" Target="SALT_LOGLEVEL" Default="" Mode="" Description="Container Variable: SALT_LOGLEVEL" Type="Variable" Display="advanced" Required="false" Mask="false">warning</Config>
   <Config Name="Docker Socket" Target="/var/run/docker.sock" Default="" Mode="rw" Description="Container Path: /var/run/docker.sock" Type="Path" Display="advanced" Required="false" Mask="false">/var/run/docker.sock</Config>
 </Container>
