@@ -56,7 +56,7 @@ ENTRYPOINT ["/init"]
 
 LABEL maintainer="Ludger Berse <lb@sell-e.de>"
 LABEL name="salt4unraid"
-LABEL githu.repo="https://github.com/lubeda/salt4gui"
+LABEL githu.repo="https://github.com/lubeda/salt4unraid"
 
 ENV SALT_VERSION="3003-r1"
 ENV SALT_APIPASSWORD="salt"
