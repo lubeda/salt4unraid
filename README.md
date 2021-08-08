@@ -9,10 +9,11 @@ Before using this Container you should learn something about [salt](https://salt
 
 First you have to accept the key from the unraid minion via the gui (user: salt_api password: salt) or the container commandline. Then you can  monitor vms with e.g. `salt unraid virt.list_domains`
 
-
+### docker.info
 `salt unraid docker.info`
 ![sample 1](https://github.com/lubeda/salt4unraid/raw/master/images/docker.info.png)
 
+### virt.capabilities
 `salt unraid virt.capabilities`
 ![sample 2](https://github.com/lubeda/salt4unraid/raw/master/images/virt.capabilities.png)
 
